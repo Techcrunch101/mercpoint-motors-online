@@ -63,6 +63,18 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        display: ['Sora', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      boxShadow: {
+        elev: 'var(--shadow-elev)',
+        cta: 'var(--shadow-cta)',
+      },
+      transitionTimingFunction: {
+        glide: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       keyframes: {
         "accordion-down": {
           from: {
