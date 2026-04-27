@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { fetchCars, type Car } from "@/lib/cars";
 import { Gauge, Fuel, Cog, Calendar, ShieldCheck, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -20,7 +21,7 @@ const Stock = () => {
   });
 
   return (
-    <main className="min-h-screen bg-carbon">
+    <main className="min-h-screen bg-background">
       <Nav />
       <section className="pt-32 pb-20 px-6 lg:px-10 max-w-[1440px] mx-auto">
         <div className="eyebrow flex items-center gap-3"><span className="inline-block w-8 h-px bg-primary" /> Live Stock List</div>
@@ -79,6 +80,7 @@ const Stock = () => {
         )}
       </section>
       <Footer />
+      <WhatsAppFab />
     </main>
   );
 };

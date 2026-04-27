@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,51 @@
 
 @layer base {
   :root {
-    /* Mercpoint Motors — Carbon / Chrome / Racing Orange */
-    --background: 222 39% 7%;          /* #0B0F19 carbon */
-    --foreground: 210 17% 98%;         /* #F8F9FA chrome */
+    /* Mercpoint Motors — Light theme: white surfaces, deep navy ink, racing orange accent */
+    --background: 0 0% 100%;            /* pure white */
+    --foreground: 222 47% 11%;          /* deep ink */
 
-    --card: 226 24% 14%;               /* #1A1F2C gunmetal */
-    --card-foreground: 210 17% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 226 24% 14%;
-    --popover-foreground: 210 17% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 16 100% 56%;            /* #FF5A1F racing orange */
-    --primary-foreground: 222 39% 7%;
+    --primary: 16 100% 52%;             /* racing orange */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 226 24% 18%;
-    --secondary-foreground: 210 17% 98%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 226 24% 14%;
-    --muted-foreground: 215 20% 65%;   /* #94A3B8 steel */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 16 100% 56%;
-    --accent-foreground: 222 39% 7%;
+    --accent: 16 100% 52%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 17% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 226 25% 24%;             /* #2E364F midnight */
-    --input: 226 25% 24%;
-    --ring: 16 100% 56%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 16 100% 52%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
-    /* Brand-specific tokens */
-    --chrome: 210 17% 98%;
-    --steel: 215 20% 65%;
-    --gunmetal: 226 24% 14%;
-    --carbon: 222 39% 7%;
-    --midnight: 226 25% 24%;
+    /* Brand-specific tokens (kept names so existing utilities still work) */
+    --chrome: 222 47% 11%;              /* now = ink for headings */
+    --steel: 220 9% 46%;                /* secondary text */
+    --gunmetal: 220 14% 97%;            /* soft surface */
+    --carbon: 0 0% 100%;                /* page bg */
+    --midnight: 220 13% 91%;            /* hairlines */
 
-    --gradient-hero: linear-gradient(90deg, hsl(222 39% 7% / 0.95) 0%, hsl(222 39% 7% / 0.7) 50%, hsl(222 39% 7% / 0.2) 100%);
-    --gradient-fade: linear-gradient(180deg, transparent 0%, hsl(222 39% 7%) 100%);
+    --whatsapp: 142 70% 45%;
 
-    --shadow-elev: 0 1px 0 hsl(0 0% 100% / 0.04) inset, 0 20px 40px -20px hsl(0 0% 0% / 0.6);
-    --shadow-cta: 0 8px 24px -8px hsl(16 100% 56% / 0.5);
+    --gradient-hero: linear-gradient(90deg, hsl(0 0% 100% / 0.92) 0%, hsl(0 0% 100% / 0.6) 55%, hsl(0 0% 100% / 0.05) 100%);
+    --gradient-fade: linear-gradient(180deg, transparent 0%, hsl(0 0% 100%) 100%);
+
+    --shadow-elev: 0 1px 0 hsl(220 13% 91%) inset, 0 24px 48px -28px hsl(222 47% 11% / 0.18);
+    --shadow-cta: 0 10px 28px -10px hsl(16 100% 52% / 0.55);
 
     --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -59,18 +61,19 @@
   html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-feature-settings: 'ss01', 'cv11';
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-feature-settings: 'ss01';
   }
   h1, h2, h3, h4 {
-    font-family: 'Sora', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     text-wrap: balance;
+    letter-spacing: -0.02em;
   }
   p { text-wrap: pretty; }
 }
 
 @layer utilities {
-  .font-display { font-family: 'Sora', system-ui, sans-serif; }
+  .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
   .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
   .text-chrome { color: hsl(var(--chrome)); }
   .text-steel { color: hsl(var(--steel)); }
