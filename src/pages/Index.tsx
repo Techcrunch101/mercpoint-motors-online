@@ -7,9 +7,20 @@ import { Reviews } from "@/components/site/Reviews";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { NewArrivalsModal } from "@/components/site/NewArrivalsModal";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
+import { useEffect } from "react";
 
-const Index = () => (
-  <main className="min-h-screen bg-carbon">
+const Index = () => {
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1);
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }, []);
+  return (
+  <main className="min-h-screen bg-background">
     <Nav />
     <Hero />
     <BrandStrip />
@@ -19,7 +30,9 @@ const Index = () => (
     <Contact />
     <Footer />
     <NewArrivalsModal />
+    <WhatsAppFab />
   </main>
-);
+  );
+};
 
 export default Index;
