@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { Gauge, Calendar, Fuel, Cog, ArrowUpRight, ShieldCheck } from "lucide-react";
+import { fetchCars, type Car as DbCar } from "@/lib/cars";
 import car1 from "@/assets/car-1.jpg";
 import car2 from "@/assets/car-2.jpg";
 import car3 from "@/assets/car-3.jpg";
@@ -12,7 +14,7 @@ type Car = {
   price: string; km: string; fuel: string; trans: string; engine: string; tag?: string;
 };
 
-const cars: Car[] = [
+const fallback: Car[] = [
   { img: car1, year: 2021, make: "Mercedes-Benz", model: "C200", trim: "AMG Line", price: "KES 5,850,000", km: "32,400 km", fuel: "Petrol", trans: "Automatic", engine: "1.5L Turbo", tag: "Featured" },
   { img: car2, year: 2020, make: "BMW", model: "X5", trim: "xDrive40i M Sport", price: "KES 9,200,000", km: "41,800 km", fuel: "Petrol", trans: "Automatic", engine: "3.0L I6 Turbo" },
   { img: car3, year: 2019, make: "Toyota", model: "Land Cruiser", trim: "ZX V8", price: "KES 14,400,000", km: "58,100 km", fuel: "Petrol", trans: "Automatic", engine: "4.6L V8", tag: "Just In" },
@@ -21,7 +23,20 @@ const cars: Car[] = [
   { img: car6, year: 2021, make: "Porsche", model: "Cayenne", trim: "Coupe Platinum", price: "KES 17,900,000", km: "18,200 km", fuel: "Petrol", trans: "PDK", engine: "3.0L V6 Turbo", tag: "Featured" },
 ];
 
-export const Inventory = () => (
+const fromDb = (c: DbCar): Car => ({
+  img: c.image_url, year: c.year, make: c.make, model: c.model, trim: c.trim ?? "",
+  price: c.price, km: c.mileage ?? "—", fuel: c.fuel ?? "—",
+  trans: c.transmission ?? "—", engine: c.engine ?? "—", tag: c.tag ?? undefined,
+});
+
+export const Inventory = () => {
+  const [cars, setCars] = useState<Car[]>(fallback);
+  useEffect(() => {
+    fetchCars().then(rows => {
+      if (rows.length > 0) setCars(rows.slice(0, 6).map(fromDb));
+    }).catch(() => {});
+  }, []);
+  return (
   <section id="inventory" className="bg-carbon py-24 lg:py-32">
     <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
       <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
@@ -34,7 +49,7 @@ export const Inventory = () => (
             Six in our showroom<br/>this week.
           </h2>
         </div>
-        <a href="#contact" className="group inline-flex items-center gap-2 text-sm text-chrome hover:text-primary transition-colors">
+        <a href="/stock" className="group inline-flex items-center gap-2 text-sm text-chrome hover:text-primary transition-colors">
           View full stock list <ArrowUpRight className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
       </div>
@@ -86,7 +101,8 @@ export const Inventory = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const Spec = ({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) => (
   <div className="flex items-center gap-2 spec text-steel"><span className="text-primary">{icon}</span>{children}</div>

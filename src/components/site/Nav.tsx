@@ -4,6 +4,7 @@ import logo from "@/assets/mercpoint-logo.jpg";
 
 const links = [
   { label: "Inventory", href: "#inventory" },
+  { label: "Stock List", href: "/stock" },
   { label: "Standard", href: "#standard" },
   { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },

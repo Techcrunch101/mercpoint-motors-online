@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MessageCircle, MapPin, Mail, Clock } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Mail, Clock, Users } from "lucide-react";
 import logo from "@/assets/mercpoint-logo.jpg";
 
 export const Contact = () => (
@@ -19,8 +19,8 @@ export const Contact = () => (
           The fastest way to<br/>buy is in person.
         </h2>
         <p className="mt-6 text-steel text-base sm:text-lg max-w-[55ch] leading-relaxed">
-          Drop by the yard for a viewing, or send a quick WhatsApp with the model you're after.
-          We typically reply within the hour during business days.
+          Visit our <span className="text-chrome">new showroom along Moi Avenue, opposite Equity Bank</span>.
+          You're welcome for all the best deals in town. Drop by for a viewing, or send a quick WhatsApp with the model you're after.
         </p>
         <div className="mt-10 grid sm:grid-cols-2 gap-4">
           <a href="https://wa.me/254729321412" target="_blank" rel="noreferrer"
@@ -40,6 +40,15 @@ export const Contact = () => (
             <Phone className="size-6 text-primary" />
           </a>
         </div>
+        <a href="https://chat.whatsapp.com/KPDoVhS86thHAI1RNt658H" target="_blank" rel="noreferrer"
+          className="mt-4 group bg-carbon border border-primary/40 rounded-sm p-5 flex items-center justify-between hover:-translate-y-1 hover:border-primary transition-all duration-300 ease-glide">
+          <div>
+            <div className="spec text-primary">Daily stock alerts</div>
+            <div className="font-display font-semibold text-chrome text-lg mt-1">Join our WhatsApp Group</div>
+            <div className="spec text-steel mt-1">Be first to see new arrivals</div>
+          </div>
+          <Users className="size-6 text-primary" />
+        </a>
       </motion.div>
 
       <motion.div
@@ -60,7 +69,7 @@ export const Contact = () => (
             </div>
           </div>
           <div className="mt-8 space-y-5">
-            <Row icon={MapPin} title="Showroom"><>Mombasa Road, Nairobi<br/>Kenya</></Row>
+            <Row icon={MapPin} title="New Showroom"><>Moi Avenue, opposite Equity Bank<br/>Nairobi, Kenya</></Row>
             <Row icon={Clock} title="Hours"><>Mon – Sat · 8:00 – 18:00<br/>Sun · By appointment</></Row>
             <Row icon={Mail} title="Email">sales@mercpointmotors.co.ke</Row>
           </div>

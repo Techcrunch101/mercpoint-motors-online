@@ -6,6 +6,7 @@ import { Standard } from "@/components/site/Standard";
 import { Reviews } from "@/components/site/Reviews";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { NewArrivalsModal } from "@/components/site/NewArrivalsModal";
 
 const Index = () => (
   <main className="min-h-screen bg-carbon">
@@ -17,6 +18,7 @@ const Index = () => (
     <Reviews />
     <Contact />
     <Footer />
+    <NewArrivalsModal />
   </main>
 );
 
