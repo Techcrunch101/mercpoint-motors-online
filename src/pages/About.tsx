@@ -25,7 +25,7 @@ const About = () => (
         >
           <div className="eyebrow flex items-center gap-3"><span className="inline-block w-8 h-px bg-primary" /> About Mercpoint</div>
           <h1 className="mt-4 font-display font-bold text-chrome text-4xl sm:text-6xl tracking-[-0.03em] leading-[1.02]">
-            A Nairobi dealership<br/>built on straight talk.
+            A Mombasa dealership<br/>built on straight talk.
           </h1>
           <p className="mt-6 text-steel text-lg leading-relaxed max-w-[58ch]">
             Mercpoint Motors Ltd was founded to fix what most car buyers in Kenya already know is broken — the guesswork, the hidden defects, the paperwork that drags on for weeks. We source, inspect, and prepare every vehicle ourselves, then sell it from one showroom on Moi Avenue with the logbook ready to transfer.
@@ -77,7 +77,7 @@ const About = () => (
         <div>
           <div className="eyebrow flex items-center gap-3"><span className="inline-block w-8 h-px bg-primary" /> Visit us</div>
           <h2 className="mt-4 font-display font-bold text-chrome text-3xl sm:text-4xl tracking-[-0.025em]">New showroom on Moi Avenue.</h2>
-          <p className="mt-4 text-steel leading-relaxed max-w-[55ch]">Opposite Equity Bank, Nairobi. Walk in any weekday between 8 AM and 6 PM — there is always someone from sales on the floor ready to walk you through the stock.</p>
+          <p className="mt-4 text-steel leading-relaxed max-w-[55ch]">Opposite Equity Bank, Mombasa. Walk in any weekday between 8 AM and 6 PM — there is always someone from sales on the floor ready to walk you through the stock.</p>
           <a href="/#contact" className="mt-8 inline-flex items-center gap-2 px-6 h-12 rounded-md bg-primary text-primary-foreground font-medium shadow-cta hover:-translate-y-0.5 active:scale-[0.98] transition-all">
             <MapPin className="size-4" /> Get directions
           </a>
