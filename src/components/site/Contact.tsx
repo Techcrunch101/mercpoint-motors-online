@@ -58,7 +58,7 @@ export const Contact = () => (
             </div>
           </div>
           <div className="mt-8 space-y-5">
-            <Row icon={MapPin} title="New Showroom"><>Moi Avenue, opposite Equity Bank<br/>Nairobi, Kenya</></Row>
+            <Row icon={MapPin} title="New Showroom"><>Moi Avenue, opposite Equity Bank<br/>Mombasa, Kenya</></Row>
             <Row icon={Clock} title="Hours"><>Mon – Sat · 8:00 – 18:00<br/>Sun · By appointment</></Row>
             <Row icon={Mail} title="Email">sales@mercpointmotors.co.ke</Row>
           </div>

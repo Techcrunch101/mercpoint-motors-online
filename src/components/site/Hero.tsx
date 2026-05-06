@@ -47,7 +47,7 @@ export const Hero = () => {
         <div className="col-span-12 lg:col-span-7">
           <motion.div initial={{ y: 12, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }} className="eyebrow flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-primary" />
-            Premium Auto Dealership — Nairobi
+            Premium Auto Dealership — Mombasa
           </motion.div>
           <motion.h1
             initial={{ y: 24, opacity: 0, filter: "blur(6px)" }}
@@ -78,7 +78,7 @@ export const Hero = () => {
             <div className="w-px h-10 hairline" />
             <div>
               <div className="font-display text-chrome text-2xl">14<span className="text-steel">y</span></div>
-              <div className="spec text-steel mt-1">In Nairobi</div>
+              <div className="spec text-steel mt-1">In Mombasa</div>
             </div>
           </motion.div>
         </div>
@@ -115,7 +115,7 @@ export const Hero = () => {
               <span className="inline-flex items-center gap-2"><Search className="size-4" /> Search <AnimatedNumber value={count} /> vehicles</span>
               <ArrowRight className="size-4" />
             </a>
-            <p className="mt-3 spec text-steel">All units physically present at our Nairobi yard.</p>
+            <p className="mt-3 spec text-steel">All units physically present at our Mombasa yard.</p>
           </div>
         </motion.div>
       </div>
