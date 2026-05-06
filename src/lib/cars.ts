@@ -15,6 +15,9 @@ export type Car = {
   image_url: string;
   is_new_arrival: boolean;
   created_at: string;
+  description: string | null;
+  category: string | null;
+  images: string[];
 };
 
 export async function fetchCars(): Promise<Car[]> {
