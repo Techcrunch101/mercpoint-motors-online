@@ -20,7 +20,7 @@ export const Nav = () => (
   >
     <div className="max-w-[1440px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
       <a href="/" className="flex items-center gap-3">
-        <img src={logo} alt="Mercpoint Motors" className="h-11 w-11 object-contain" />
+        <img src={logo} alt="Mercpoint Motors" className="h-14 w-14 object-contain drop-shadow-md" />
         <div className="leading-none">
           <div className="font-display font-bold text-chrome tracking-tight text-[15px]">MERCPOINT</div>
           <div className="spec text-steel text-[10px] mt-0.5">MOTORS LTD</div>
