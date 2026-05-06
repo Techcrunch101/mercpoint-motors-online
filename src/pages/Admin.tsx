@@ -8,7 +8,7 @@ import { Trash2, Upload, LogOut, Plus, Loader2 } from "lucide-react";
 const empty = {
   make: "", model: "", year: new Date().getFullYear(), trim: "", price: "",
   mileage: "", fuel: "Petrol", transmission: "Automatic", engine: "", tag: "Just In",
-  is_new_arrival: true,
+  is_new_arrival: true, description: "", category: "Sedan",
 };
 
 const Admin = () => {
@@ -17,7 +17,7 @@ const Admin = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [cars, setCars] = useState<Car[]>([]);
   const [form, setForm] = useState(empty);
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -49,22 +49,27 @@ const Admin = () => {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file) { toast({ title: "Add a photo", variant: "destructive" }); return; }
+    if (files.length === 0) { toast({ title: "Add at least one photo", variant: "destructive" }); return; }
     setSubmitting(true);
     try {
-      const ext = file.name.split(".").pop();
-      const path = `${crypto.randomUUID()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("car-images").upload(path, file, { contentType: file.type });
-      if (upErr) throw upErr;
-      const { data: urlData } = supabase.storage.from("car-images").getPublicUrl(path);
+      const urls: string[] = [];
+      for (const f of files) {
+        const ext = f.name.split(".").pop();
+        const path = `${crypto.randomUUID()}.${ext}`;
+        const { error: upErr } = await supabase.storage.from("car-images").upload(path, f, { contentType: f.type });
+        if (upErr) throw upErr;
+        const { data: urlData } = supabase.storage.from("car-images").getPublicUrl(path);
+        urls.push(urlData.publicUrl);
+      }
       const { error: insErr } = await supabase.from("cars").insert({
         ...form,
         year: Number(form.year),
-        image_url: urlData.publicUrl,
+        image_url: urls[0],
+        images: urls,
       });
       if (insErr) throw insErr;
       toast({ title: "Car added", description: `${form.year} ${form.make} ${form.model}` });
-      setForm(empty); setFile(null);
+      setForm(empty); setFiles([]);
       (document.getElementById("car-file") as HTMLInputElement).value = "";
       load();
     } catch (e: any) {
@@ -120,11 +125,11 @@ const Admin = () => {
             <h2 className="font-display text-chrome text-xl flex items-center gap-2"><Plus className="size-5 text-primary" /> Add new car</h2>
 
             <label className="block">
-              <div className="spec text-steel mb-1.5">Photo</div>
+              <div className="spec text-steel mb-1.5">Photos (select multiple)</div>
               <div className="border border-dashed border-midnight rounded-sm p-4 hover:border-primary/40 transition-colors">
-                <input id="car-file" type="file" accept="image/*" required onChange={e => setFile(e.target.files?.[0] ?? null)}
+                <input id="car-file" type="file" accept="image/*" multiple required onChange={e => setFiles(Array.from(e.target.files ?? []))}
                   className="block w-full text-sm text-steel file:mr-3 file:px-3 file:h-9 file:rounded-sm file:border-0 file:bg-primary file:text-primary-foreground" />
-                {file && <div className="spec text-primary mt-2 flex items-center gap-1"><Upload className="size-3" /> {file.name}</div>}
+                {files.length > 0 && <div className="spec text-primary mt-2 flex items-center gap-1"><Upload className="size-3" /> {files.length} file(s) selected</div>}
               </div>
             </label>
 
@@ -146,12 +151,21 @@ const Admin = () => {
                 </select>
               </Field>
               <Field label="Engine"><input className={input} value={form.engine} onChange={e => set("engine", e.target.value)} placeholder="2.5L V6" /></Field>
+              <Field label="Category">
+                <select className={input} value={form.category} onChange={e => set("category", e.target.value)}>
+                  {["Sedan","SUV","Truck","Hatchback","Coupe","Wagon","Van","Convertible"].map(o => <option key={o} className="bg-gunmetal">{o}</option>)}
+                </select>
+              </Field>
               <Field label="Tag">
                 <select className={input} value={form.tag} onChange={e => set("tag", e.target.value)}>
                   {["Just In","Featured","Sold","Hot Deal",""].map(o => <option key={o} value={o} className="bg-gunmetal">{o || "None"}</option>)}
                 </select>
               </Field>
             </div>
+
+            <Field label="Description">
+              <textarea className={`${input} h-24 py-2`} value={form.description} onChange={e => set("description", e.target.value)} placeholder="Condition, features, history…" />
+            </Field>
 
             <label className="flex items-center gap-2 text-sm text-chrome">
               <input type="checkbox" checked={form.is_new_arrival} onChange={e => set("is_new_arrival", e.target.checked)} />

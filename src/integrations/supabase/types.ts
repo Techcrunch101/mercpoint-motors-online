@@ -16,11 +16,14 @@ export type Database = {
     Tables: {
       cars: {
         Row: {
+          category: string | null
           created_at: string
+          description: string | null
           engine: string | null
           fuel: string | null
           id: string
           image_url: string
+          images: string[]
           is_new_arrival: boolean
           make: string
           mileage: string | null
@@ -32,11 +35,14 @@ export type Database = {
           year: number
         }
         Insert: {
+          category?: string | null
           created_at?: string
+          description?: string | null
           engine?: string | null
           fuel?: string | null
           id?: string
           image_url: string
+          images?: string[]
           is_new_arrival?: boolean
           make: string
           mileage?: string | null
@@ -48,11 +54,14 @@ export type Database = {
           year: number
         }
         Update: {
+          category?: string | null
           created_at?: string
+          description?: string | null
           engine?: string | null
           fuel?: string | null
           id?: string
           image_url?: string
+          images?: string[]
           is_new_arrival?: boolean
           make?: string
           mileage?: string | null
