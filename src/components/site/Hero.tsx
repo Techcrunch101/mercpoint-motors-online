@@ -4,18 +4,23 @@ import { ArrowRight, Search } from "lucide-react";
 import hero from "@/assets/hero-grille.jpg";
 
 const makes = [
-  "All makes", "Audi", "BMW", "BYD", "Changan", "GWM (Haval)", "Honda",
-  "Hyundai", "Kia", "Land Rover", "Lexus", "Mazda", "Mercedes-Benz",
-  "Nissan", "Porsche", "Proton", "Subaru", "Toyota", "Volkswagen",
+  "All makes", "Audi", "BMW", "BYD", "Changan", "Chevrolet", "Citroën", "Daihatsu",
+  "Fiat", "Ford", "GWM (Haval)", "Honda", "Hyundai", "Isuzu", "Jaguar", "Jeep",
+  "Kia", "Land Rover", "Lexus", "Maserati", "Mazda", "Mercedes-Benz",
+  "Mini (Mini Cooper)", "Mitsubishi", "Nissan", "Peugeot", "Porsche", "Proton",
+  "Renault", "Subaru", "Suzuki", "Toyota", "Volkswagen", "Volvo",
 ];
 const bodies = ["All body types", "Sedan", "SUV", "Coupe", "Pickup"];
 const prices = ["Any price", "Under KES 3M", "3M – 6M", "6M – 12M", "12M+"];
 
 const inventoryByMake: Record<string, number> = {
-  "All makes": 142, "Audi": 12, "BMW": 24, "BYD": 5, "Changan": 3,
-  "GWM (Haval)": 4, "Honda": 8, "Hyundai": 10, "Kia": 7, "Land Rover": 17,
-  "Lexus": 9, "Mazda": 6, "Mercedes-Benz": 38, "Nissan": 11, "Porsche": 10,
-  "Proton": 2, "Subaru": 4, "Toyota": 41, "Volkswagen": 13,
+  "All makes": 142, "Audi": 12, "BMW": 24, "BYD": 5, "Changan": 3, "Chevrolet": 6,
+  "Citroën": 3, "Daihatsu": 2, "Fiat": 4, "Ford": 8, "GWM (Haval)": 4, "Honda": 8,
+  "Hyundai": 10, "Isuzu": 5, "Jaguar": 7, "Jeep": 6, "Kia": 7, "Land Rover": 17,
+  "Lexus": 9, "Maserati": 4, "Mazda": 6, "Mercedes-Benz": 38,
+  "Mini (Mini Cooper)": 3, "Mitsubishi": 5, "Nissan": 11, "Peugeot": 4,
+  "Porsche": 10, "Proton": 2, "Renault": 3, "Subaru": 4, "Suzuki": 5,
+  "Toyota": 41, "Volkswagen": 13, "Volvo": 6,
 };
 
 function AnimatedNumber({ value }: { value: number }) {
