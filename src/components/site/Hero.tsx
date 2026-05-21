@@ -3,13 +3,19 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Search } from "lucide-react";
 import hero from "@/assets/hero-grille.jpg";
 
-const makes = ["All makes", "Mercedes-Benz", "BMW", "Toyota", "Land Rover", "Audi", "Porsche"];
+const makes = [
+  "All makes", "Audi", "BMW", "BYD", "Changan", "GWM (Haval)", "Honda",
+  "Hyundai", "Kia", "Land Rover", "Lexus", "Mazda", "Mercedes-Benz",
+  "Nissan", "Porsche", "Proton", "Subaru", "Toyota", "Volkswagen",
+];
 const bodies = ["All body types", "Sedan", "SUV", "Coupe", "Pickup"];
 const prices = ["Any price", "Under KES 3M", "3M – 6M", "6M – 12M", "12M+"];
 
 const inventoryByMake: Record<string, number> = {
-  "All makes": 142, "Mercedes-Benz": 38, "BMW": 24, "Toyota": 41,
-  "Land Rover": 17, "Audi": 12, "Porsche": 10,
+  "All makes": 142, "Audi": 12, "BMW": 24, "BYD": 5, "Changan": 3,
+  "GWM (Haval)": 4, "Honda": 8, "Hyundai": 10, "Kia": 7, "Land Rover": 17,
+  "Lexus": 9, "Mazda": 6, "Mercedes-Benz": 38, "Nissan": 11, "Porsche": 10,
+  "Proton": 2, "Subaru": 4, "Toyota": 41, "Volkswagen": 13,
 };
 
 function AnimatedNumber({ value }: { value: number }) {
