@@ -1,14 +1,16 @@
 const brands = [
-  "AUDI", "BMW", "BYD", "CHANGAN", "GWM (HAVAL)", "HONDA", "HYUNDAI",
-  "JAGUAR", "KIA", "LAND ROVER / RANGE ROVER", "LEXUS", "MAZDA",
-  "MERCEDES-BENZ", "NISSAN", "PORSCHE", "PROTON", "SUBARU", "TOYOTA", "VOLKSWAGEN",
+  "AUDI", "BMW", "BYD", "CHANGAN", "CHEVROLET", "CITROËN", "DAIHATSU", "FIAT",
+  "FORD", "GWM (HAVAL)", "HONDA", "HYUNDAI", "ISUZU", "JAGUAR", "JEEP", "KIA",
+  "LAND ROVER / RANGE ROVER", "LEXUS", "MASERATI", "MAZDA", "MERCEDES-BENZ",
+  "MINI (MINI COOPER)", "MITSUBISHI", "NISSAN", "PEUGEOT", "PORSCHE", "PROTON",
+  "RENAULT", "SUBARU", "SUZUKI", "TOYOTA", "VOLKSWAGEN", "VOLVO",
 ];
 
 export const BrandStrip = () => (
   <section className="border-y border-midnight bg-carbon py-8 overflow-hidden">
     <div className="max-w-[1440px] mx-auto px-6 lg:px-10 mb-6 flex items-center justify-between">
       <div className="eyebrow">Marques We Source</div>
-      <div className="spec text-steel">18+ Premium Brands</div>
+      <div className="spec text-steel">30+ Premium Brands</div>
     </div>
     <div className="relative">
       <div className="flex marquee gap-16 w-max">
